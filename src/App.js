@@ -1,11 +1,16 @@
-import './App.css';
+import "./App.css";
+import GeneralInfo from "./components/GeneralInfo";
+import Curriculum from "./components/Curriculum";
 
 function App() {
   return (
     <div className="App">
-        <p>
-          Hello word:).
-        </p>
+      <div className="fields">
+        <GeneralInfo />
+      </div>
+      <div className="curriculum">
+        <Curriculum />
+      </div>
     </div>
   );
 }
