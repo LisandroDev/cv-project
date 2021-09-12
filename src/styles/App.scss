@@ -2,6 +2,42 @@
   padding: 0;
 }
 
+*{
+  font-family: "Nunito";
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.header-g{
+  background-color: #3d5a80;
+  border-bottom: 1px;
+  border-bottom-left-radius: 1px;
+  border-bottom-right-radius: 1px;
+  font-family: 'Century ghotic', sans-serif;
+  font-size: 50px;
+}
+
+.footer-g{
+  background-color: rgba($color: #293241, $alpha: 0.6);
+}
+input[type="submit"]{
+  background-color: rgba($color: gray, $alpha: 0.5);
+  border:none;
+  border-radius:4px;
+}
+
+input[type="number"]{
+  border:none;
+  background: transparent;
+  padding-left: 15px;
+  border:none;
+  -moz-appearance: textfield;
+}
+
 input[type="submit"]{
     margin-top: 10px;
 }
@@ -15,11 +51,13 @@ input[type="text"] {
 }
 
 .container-grid {
+  background-color:rgba($color: #98c1d9, $alpha: 0.6);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  row-gap: 15px;
+  grid-template-rows: 0.3fr 4fr 0.25fr;
+  gap:15px;
   width: 100vw;
-  height: 100vh;
+  height: 100vh; 
 }
 
 .header-g {
@@ -32,8 +70,10 @@ input[type="text"] {
   flex-direction: column;
   justify-content: space-evenly;
   grid-column: 1 / 2;
-  border: 1px solid gray;
-  border-radius: 5px;
+  border: none;
+  border-right: 3px solid gray;
+  border-radius: 2px;
+  
 }
 
 .generalinfo-g h2 {
@@ -62,6 +102,8 @@ form {
 .g-div {
   display: flex;
   flex-grow: 1;
+  background-color: rgba($color: gray, $alpha: 0.2);
+  border-radius: 20px;
 }
 
 .year-inputs {
