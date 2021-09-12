@@ -12,10 +12,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      email: "",
-      phonenumber: "",
-      website: "",
+      general: {
+        name: "",
+        email: "",
+        phonenumber: "",
+        website: "",
+      },
       education: {
         schoolname: "",
         degree: "",
@@ -38,8 +40,8 @@ class App extends React.Component {
   }
 
   handlerStates = (args) => {
-    this.setState(args)
-  }
+    this.setState(args);
+  };
 
   render() {
     return (
@@ -47,7 +49,10 @@ class App extends React.Component {
         <Header />
         <div className="generalinfo-g">
           <h2>General info</h2>
-          <GeneralInfo handler={this.handlerStates} />
+          <GeneralInfo
+            handler={this.handlerStates}
+            generalState={this.state.general}
+          />
           <h2>Education</h2>
           <Education />
           <h2>Work Experience</h2>
@@ -55,7 +60,7 @@ class App extends React.Component {
           <h2>Skills</h2>
           <Skills />
         </div>
-        <Curriculum state={this.state}/>
+        <Curriculum state={this.state.general} />
         <footer className="footer-g"> Github </footer>
       </div>
     );

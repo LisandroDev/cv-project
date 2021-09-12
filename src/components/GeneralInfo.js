@@ -3,6 +3,14 @@ import { MdPhone, MdPerson, MdEmail, MdLanguage } from "react-icons/md";
 
 class GeneralInfo extends React.Component {
   render() {
+    const generalObject = this.props.generalObject;
+
+    const updater = (elem, val) => {
+      let clone = generalObject;
+      clone[elem] = val;
+      this.props.handler({ generalObject: clone });
+    };
+
     return (
       <div className="g-div">
         <form>
@@ -11,27 +19,45 @@ class GeneralInfo extends React.Component {
               {" "}
               <MdPerson />{" "}
             </label>
-            <input type="text" id="name" placeholder="Name" onChange={(e) => this.props.handler({name: e.target.value})} />
+            <input
+              type="text"
+              id="name"
+              placeholder="Name"
+              onChange={(e) => updater("name", e.target.value)}
+            />
           </div>
           <div className="field">
             <label for="phonenumber">
-              {" "}
-              <MdPhone />{" "}
+              <MdPhone />
             </label>
-            <input type="text" id="phonenumber" placeholder="Phone Number" onChange={(e) => this.props.handler({phonenumber: e.target.value})}/>
+            <input
+              type="text"
+              id="phonenumber"
+              placeholder="Phone Number"
+              onChange={(e) => updater("phonenumber", e.target.value)}
+            />
           </div>
           <div className="field">
             <label for="email">
-              {" "}
-              <MdEmail />{" "}
+              <MdEmail />
             </label>
-            <input type="text" id="email" placeholder="Email" onChange={(e) => this.props.handler({email: e.target.value})}/>
+            <input
+              type="text"
+              id="email"
+              placeholder="Email"
+              onChange={(e) => updater("email", e.target.value)}
+            />
           </div>
           <div className="field">
             <label for="website">
               <MdLanguage />
             </label>
-            <input type="text" id="website" placeholder="Website" onChange={(e) => this.props.handler({website: e.target.value})} />
+            <input
+              type="text"
+              id="website"
+              placeholder="Website"
+              onChange={(e) => updater("website", e.target.value)}
+            />
           </div>
         </form>
       </div>
