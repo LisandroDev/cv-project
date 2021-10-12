@@ -2,9 +2,9 @@ import GeneralInfo from "./components/GeneralInfo";
 import Curriculum from "./components/Curriculum";
 import Header from "./components/Header";
 import Education from "./components/Education";
-import "./styles/App.scss";
 import Experience from "./components/Experience";
 import Skills from "./components/Skills";
+import "./styles/App.scss";
 import React from "react";
 import uniqid from "uniqid";
 
@@ -21,8 +21,8 @@ class App extends React.Component {
       education: {
         schoolname: "",
         degree: "",
-        startyear: 0,
-        endyear: 0,
+        startyear: "Start year",
+        endyear: "End year",
         id: uniqid(),
       },
       workexperience: {
@@ -54,13 +54,30 @@ class App extends React.Component {
             generalState={this.state.general}
           />
           <h2>Education</h2>
-          <Education />
+          <Education
+            handler={this.handlerStates}
+            educationState={this.state.education}
+            educationArray={this.state.schools}
+          />
           <h2>Work Experience</h2>
-          <Experience />
+          <Experience
+            handler={this.handlerStates}
+            workState={this.state.workexperience}
+            workArray={this.state.works}
+          />
           <h2>Skills</h2>
-          <Skills />
+          <Skills
+            handler={this.handlerStates}
+            skillsState={this.state.skill}
+            skillsArray={this.state.skills}
+          />
         </div>
-        <Curriculum state={this.state.general} />
+        <Curriculum
+          generalInfo={this.state.general}
+          schoolsInfo={this.state.schools}
+          worksInfo={this.state.works}
+          skillsInfo={this.state.skills}
+        />
         <footer className="footer-g"> Github </footer>
       </div>
     );

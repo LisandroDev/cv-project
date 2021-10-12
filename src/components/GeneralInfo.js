@@ -3,12 +3,12 @@ import { MdPhone, MdPerson, MdEmail, MdLanguage } from "react-icons/md";
 
 class GeneralInfo extends React.Component {
   render() {
-    const generalObject = this.props.generalObject;
+    const generalObject = this.props.generalState;
 
     const updater = (elem, val) => {
       let clone = generalObject;
       clone[elem] = val;
-      this.props.handler({ generalObject: clone });
+      this.props.handler({ general: clone });
     };
 
     return (
@@ -24,6 +24,7 @@ class GeneralInfo extends React.Component {
               id="name"
               placeholder="Name"
               onChange={(e) => updater("name", e.target.value)}
+              required
             />
           </div>
           <div className="field">
@@ -35,6 +36,7 @@ class GeneralInfo extends React.Component {
               id="phonenumber"
               placeholder="Phone Number"
               onChange={(e) => updater("phonenumber", e.target.value)}
+              required
             />
           </div>
           <div className="field">
@@ -46,6 +48,7 @@ class GeneralInfo extends React.Component {
               id="email"
               placeholder="Email"
               onChange={(e) => updater("email", e.target.value)}
+              required
             />
           </div>
           <div className="field">
