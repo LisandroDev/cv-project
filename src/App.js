@@ -37,8 +37,26 @@ class App extends React.Component {
       schools: [],
       works: [],
       skills: [],
+      edVisible: false,
+      workVisible: false,
+      skillVisible: false,
     };
   }
+
+  isEdVisible = () => {
+    this.setState({ edVisible: !this.state.edVisible });
+    console.log(this.state.edVisible);
+  };
+
+  isWorkVisible = () => {
+    this.setState({ workVisible: !this.state.workVisible });
+    console.log(this.state.workVisible);
+  };
+
+  isSkillVisible = () => {
+    this.setState({ skillVisible: !this.state.skillVisible });
+    console.log(this.state.skillVisible);
+  };
 
   handlerStates = (args) => {
     this.setState(args);
@@ -59,18 +77,25 @@ class App extends React.Component {
             handler={this.handlerStates}
             educationState={this.state.education}
             educationArray={this.state.schools}
+            changeVisible={this.isEdVisible}
+            isVisible={this.state.edVisible}
+
           />
           <h2>Work Experience</h2>
           <Experience
             handler={this.handlerStates}
             workState={this.state.workexperience}
             workArray={this.state.works}
+            changeVisible={this.isWorkVisible}
+            isVisible={this.state.workVisible}
           />
           <h2>Skills</h2>
           <Skills
             handler={this.handlerStates}
             skillsState={this.state.skill}
             skillsArray={this.state.skills}
+            changeVisible={this.isSkillVisible}
+            isVisible={this.state.skillVisible}
           />
         </div>
         <Curriculum
@@ -78,6 +103,9 @@ class App extends React.Component {
           schoolsInfo={this.state.schools}
           worksInfo={this.state.works}
           skillsInfo={this.state.skills}
+          edVisible={this.state.edVisible}
+          workVisible={this.state.workVisible}
+          skillVisible={this.state.skillVisible}
         />
         <footer className="footer-g">
           {" "}

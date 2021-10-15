@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { MdPhone, MdPerson, MdEmail, MdLanguage } from "react-icons/md";
 
@@ -15,7 +16,7 @@ class GeneralInfo extends React.Component {
       <div className="g-div">
         <form>
           <div className="field">
-            <label for="name">
+            <label htmlFor="name">
               {" "}
               <MdPerson />{" "}
             </label>
@@ -28,7 +29,7 @@ class GeneralInfo extends React.Component {
             />
           </div>
           <div className="field">
-            <label for="phonenumber">
+            <label htmlFor="phonenumber">
               <MdPhone />
             </label>
             <input
@@ -40,7 +41,7 @@ class GeneralInfo extends React.Component {
             />
           </div>
           <div className="field">
-            <label for="email">
+            <label htmlFor="email">
               <MdEmail />
             </label>
             <input
@@ -52,7 +53,7 @@ class GeneralInfo extends React.Component {
             />
           </div>
           <div className="field">
-            <label for="website">
+            <label htmlFor="website">
               <MdLanguage />
             </label>
             <input

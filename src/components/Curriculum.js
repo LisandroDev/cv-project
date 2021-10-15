@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import {
   MdPerson,
@@ -6,6 +7,7 @@ import {
   MdLanguage,
   MdKeyboardArrowRight,
 } from "react-icons/md";
+
 
 class Curriculum extends React.Component {
   render() {
@@ -16,8 +18,8 @@ class Curriculum extends React.Component {
 
     const renderWorks = works.map((e) => {
       return (
-        <div class="box " key={e.id}>
-          <div class="content-box">
+        <div className="box " key={e.id}>
+          <div className="content-box">
             <h4> Company name: {e.companyname} </h4>
             <h4> Position: {e.position} </h4>
             <h4>
@@ -31,8 +33,8 @@ class Curriculum extends React.Component {
 
     const renderSchools = schools.map((e) => {
       return (
-        <div class="box" key={e.id}>
-          <div class="content-box">
+        <div className="box" key={e.id}>
+          <div className="content-box">
             <h4> School name: {e.schoolname} </h4>
             <h4> Degree: {e.degree} </h4>
             <h4>
@@ -56,38 +58,45 @@ class Curriculum extends React.Component {
 
     return (
       <div className="curriculum-g">
-        <div class="box">
-          <div class="content-box">
+        <div className="box">
+          <div className="content-box">
             {" "}
-            <h3>
+            <h4>
               {" "}
               <MdPerson /> Name: {info.name}{" "}
-            </h3>
-            <h3>
+            </h4>
+            <h4>
               {" "}
               <MdPhone /> Phone number: {info.phonenumber}{" "}
-            </h3>
-            <h3>
+            </h4>
+            <h4>
               {" "}
               <MdEmail /> Email: {info.email}{" "}
-            </h3>
-            <h3>
+            </h4>
+            <h4>
               {" "}
               <MdLanguage /> Website: {info.website}{" "}
-            </h3>
+            </h4>
           </div>
         </div>
+        {this.props.edVisible ? (
+          <div>
+            <p className="p-curriculum">Education:</p> {renderSchools}
+          </div>
+        ) : null}
 
-        <div>
-          <p>Education:</p> {renderSchools}
-        </div>
-        <div>
-          <p>Work experience:</p> {renderWorks}
-        </div>
-        <div>
-          {" "}
-          <p>Skills:</p> {renderSkills}{" "}
-        </div>
+        {this.props.workVisible ? (
+          <div>
+            <p className="p-curriculum">Work experience:</p> {renderWorks}
+          </div>
+        ) : null}
+
+        {this.props.skillVisible ? (
+          <div>
+            {" "}
+            <p className="p-curriculum">Skills:</p> {renderSkills}{" "}
+          </div>
+        ) : null}
       </div>
     );
   }

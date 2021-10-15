@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import uniqid from "uniqid";
 import { MdBook, MdLabel } from "react-icons/md";
+import { AiOutlineEye , AiOutlineEyeInvisible} from "react-icons/ai"
 
 class Education extends React.Component {
   render() {
@@ -27,11 +29,13 @@ class Education extends React.Component {
       });
     };
 
+
     return (
       <div className="g-div">
         <form onSubmit={onSubmitTask}>
+        <button type="button" className="visible-button" onClick={this.props.changeVisible}>{this.props.isVisible ? <AiOutlineEye/> : <AiOutlineEyeInvisible/> } </button>
           <div className="field">
-            <label for="schoolname">
+            <label htmlFor="schoolname">
               <MdBook />
             </label>
             <input
@@ -44,7 +48,7 @@ class Education extends React.Component {
             />
           </div>
           <div className="field">
-            <label for="degree">
+            <label htmlFor="degree">
               <MdLabel />
             </label>
             <input

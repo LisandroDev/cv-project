@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import uniqid from "uniqid";
 import { MdWork, MdLabel } from "react-icons/md";
+import { AiOutlineEye , AiOutlineEyeInvisible} from "react-icons/ai"
 
 class Experience extends React.Component {
   render() {
@@ -30,8 +32,9 @@ class Experience extends React.Component {
     return (
       <div className="g-div">
         <form onSubmit={onSubmitTask}>
+        <button type="button" className="visible-button" onClick={this.props.changeVisible}> {this.props.isVisible ? <AiOutlineEye/> : <AiOutlineEyeInvisible/>} </button>
           <div className="field">
-            <label for="companyname">
+            <label htmlFor="companyname">
               <MdWork />
             </label>
             <input
@@ -44,7 +47,7 @@ class Experience extends React.Component {
             />
           </div>
           <div className="field">
-            <label for="position">
+            <label htmlFor="position">
               <MdLabel />
             </label>
             <input
