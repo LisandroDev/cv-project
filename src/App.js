@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Skills from "./components/Skills";
+import { ImGithub } from "react-icons/im";
 import "./styles/App.scss";
 import React from "react";
 import uniqid from "uniqid";
@@ -28,8 +29,8 @@ class App extends React.Component {
       workexperience: {
         companyname: "",
         position: "",
-        startyear: 0,
-        endyear: 0,
+        startyear: "Start year",
+        endyear: "End year",
         id: uniqid(),
       },
       skill: { text: "" },
@@ -78,7 +79,12 @@ class App extends React.Component {
           worksInfo={this.state.works}
           skillsInfo={this.state.skills}
         />
-        <footer className="footer-g"> Github </footer>
+        <footer className="footer-g">
+          {" "}
+          <a href="https://github.com/lichaa824">
+            Github <ImGithub />{" "}
+          </a>
+        </footer>
       </div>
     );
   }

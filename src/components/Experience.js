@@ -8,8 +8,8 @@ class Experience extends React.Component {
     const experienceClean = {
       companyname: "",
       position: "",
-      startyear: 0,
-      endyear: 0,
+      startyear: "",
+      endyear: "",
       id: uniqid(),
     };
 
@@ -38,6 +38,7 @@ class Experience extends React.Component {
               type="text"
               id="companyname"
               placeholder="Company Name"
+              value={experienceObject.companyname}
               onChange={(e) => updater("companyname", e.target.value)}
               required
             />
@@ -50,6 +51,7 @@ class Experience extends React.Component {
               type="text"
               id="position"
               placeholder="Position title"
+              value={experienceObject.position}
               onChange={(e) => updater("position", e.target.value)}
               required
             />
@@ -61,6 +63,7 @@ class Experience extends React.Component {
               max="2099"
               id="start-date"
               placeholder="First year"
+              value={experienceObject.startyear}
               onChange={(e) => updater("startyear", e.target.value)}
               required
             />
@@ -70,6 +73,7 @@ class Experience extends React.Component {
               max="2099"
               id="end-date"
               placeholder="Last year"
+              value={experienceObject.endyear}
               onChange={(e) => updater("endyear", e.target.value)}
               required
             />
